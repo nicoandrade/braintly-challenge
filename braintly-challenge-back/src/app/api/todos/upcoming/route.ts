@@ -23,3 +23,4 @@ export async function GET(): Promise<Response> {
         return response;
     }
 }
+export const dynamic = "force-dynamic";
