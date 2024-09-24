@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { TrashIcon } from "@/components/Icons";
+import { LoadingIcon, TrashIcon } from "@/components/Icons";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { deleteTodo, updateTodo } from "@/lib/api-helpers";
@@ -27,6 +27,7 @@ export default function TodoItem({
     url,
 }: TodoItemProps) {
     const [value, setValue] = useState(!!isCompleted);
+    const [isDeleting, setIsDeleting] = useState(false);
     const { mutate } = useSWRConfig();
 
     return (
@@ -80,11 +81,16 @@ export default function TodoItem({
                         className={"group size-5 opacity-0 group-hover/todo:opacity-100"}
                         size="icon"
                         onClick={async () => {
+                            setIsDeleting(true);
                             await deleteTodo(_id);
                             await mutate(url);
                         }}
                     >
-                        <TrashIcon className="size-4 text-gray-400 group-hover:text-gray-700" />
+                        {isDeleting ? (
+                            <LoadingIcon className="size-4 animate-spin text-gray-400 group-hover:text-gray-700" />
+                        ) : (
+                            <TrashIcon className="size-4 text-gray-400 group-hover:text-gray-700" />
+                        )}
                     </Button>
                 </div>
             </div>
