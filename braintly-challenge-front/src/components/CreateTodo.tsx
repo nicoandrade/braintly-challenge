@@ -66,7 +66,7 @@ export default function CreateTodo() {
                                             placeholder="Create todo..."
                                             {...field}
                                             autoComplete="off"
-                                            className="peer"
+                                            className="peer text-base"
                                         />
                                         <Button
                                             type="button"
