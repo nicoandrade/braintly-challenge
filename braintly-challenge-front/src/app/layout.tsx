@@ -2,6 +2,7 @@ import { type Metadata } from "next";
 import type { Viewport } from "next";
 
 import { SWRProvider } from "@/app/swr-provider";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { env } from "@/env";
 import { getTodos } from "@/lib/api-helpers";
@@ -27,6 +28,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
                 <SWRProvider config={{ fallback: { "/api/todos": todos } }}>
                     <Header />
                     {children}
+                    <Footer />
                 </SWRProvider>
             </body>
         </html>
