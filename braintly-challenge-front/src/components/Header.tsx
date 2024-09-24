@@ -54,6 +54,9 @@ export default async function Header() {
                                             href={item.href}
                                             className="hover:text-primary dark:hover:text-primary relative flex items-center gap-2 py-1 text-base font-medium text-gray-500"
                                         >
+                                            {item.icon && (
+                                                <item.icon className="size-5 text-gray-500 group-hover:text-gray-600" />
+                                            )}
                                             {item.name}
                                         </Link>
                                     ))}
