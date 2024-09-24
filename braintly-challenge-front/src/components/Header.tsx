@@ -46,7 +46,7 @@ export default async function Header() {
                                 </DrawerClose>
                                 <DrawerTitle>Menu</DrawerTitle>
                             </DrawerHeader>
-                            <div className="grid grid-cols-1 gap-3">
+                            <div className="grid grid-cols-1 gap-3 pb-3">
                                 <div className="grid grid-cols-1 gap-2 px-4">
                                     {navigation.map((item) => (
                                         <Link
