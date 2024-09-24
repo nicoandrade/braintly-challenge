@@ -1,0 +1,19 @@
+meta {
+  name: Delete Todo by ID
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{url}}/api/todos/66f1d987dbdaed9df222c3d2
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "TEst Item 5",
+    "isCompleted": true,
+    "isCompletedAt": "2024-09-23T14:18:03.133Z"
+  }
+}

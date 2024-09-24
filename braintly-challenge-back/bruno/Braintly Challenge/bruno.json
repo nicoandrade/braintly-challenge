@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Braintly Challenge",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

@@ -1,0 +1,17 @@
+meta {
+  name: Create Todo
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{url}}/api/todos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Test Item 6"
+  }
+}
