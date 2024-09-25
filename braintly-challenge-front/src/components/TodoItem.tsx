@@ -50,13 +50,14 @@ export default function TodoItem({
                         }
                     }}
                     checked={value}
+                    className="size-5 md:size-4"
                 />
                 <div className="group/todo flex items-center gap-2">
                     <label className="leading-tight">{children}</label>
                     {!isCompletedAt && deadline && (
                         <span
                             className={cn(
-                                "text-xs",
+                                "text-xs leading-tight",
                                 differenceInSeconds(deadline, new Date()) < 0
                                     ? "text-red-400"
                                     : "text-gray-400"
@@ -70,7 +71,7 @@ export default function TodoItem({
                         </span>
                     )}
                     {isCompletedAt && (
-                        <span className="text-xs text-gray-400">
+                        <span className="text-xs leading-tight text-gray-400">
                             {differenceInHours(isCompletedAt, new Date()) < 24
                                 ? formatDistanceToNow(isCompletedAt, {
                                       addSuffix: true,
