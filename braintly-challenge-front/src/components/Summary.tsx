@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { InboxIcon, LoadingIcon, LogbookIcon } from "@/components/Icons";
 import { useTodos, useTodosCompleted } from "@/hooks/todos";
 
@@ -9,7 +11,7 @@ export default function Summary() {
 
     return (
         <div className="grid grid-cols-2 gap-4">
-            <div className="flex flex-col gap-3 rounded-2xl bg-emerald-200/70 p-6">
+            <Link href="/logbook" className="flex flex-col gap-3 rounded-2xl bg-emerald-200/70 p-6">
                 <span className="flex size-11 items-center justify-center rounded-full bg-emerald-300">
                     <LogbookIcon className="size-6 text-emerald-700" />
                 </span>
@@ -24,9 +26,9 @@ export default function Summary() {
                         items completed.
                     </p>
                 </div>
-            </div>
+            </Link>
 
-            <div className="flex flex-col gap-3 rounded-2xl bg-cyan-200/70 p-6">
+            <Link href="/" className="flex flex-col gap-3 rounded-2xl bg-cyan-200/70 p-6">
                 <span className="flex size-11 items-center justify-center rounded-full bg-cyan-300">
                     <InboxIcon className="size-6 text-cyan-700" />
                 </span>
@@ -41,7 +43,7 @@ export default function Summary() {
                         items uncompleted.
                     </p>
                 </div>
-            </div>
+            </Link>
         </div>
     );
 }
