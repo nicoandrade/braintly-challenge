@@ -15,7 +15,9 @@ export async function GET(): Promise<Response> {
             .sort({ createdAt: -1 })
             .toArray();
 
-        const response = NextResponse.json({ data: result });
+        const count = await todos.countDocuments({ isCompleted: { $ne: true } });
+
+        const response = NextResponse.json({ data: result, count });
         response.headers.set("Access-Control-Allow-Origin", "*");
         return response;
     } catch (error) {

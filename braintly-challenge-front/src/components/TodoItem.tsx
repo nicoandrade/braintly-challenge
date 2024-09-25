@@ -45,6 +45,9 @@ export default function TodoItem({
                         // Then we update the todo
                         await updateTodo(_id, !!checked);
                         await mutate(url);
+                        if (checked) {
+                            await mutate("/api/todos/completed");
+                        }
                     }}
                     checked={value}
                 />

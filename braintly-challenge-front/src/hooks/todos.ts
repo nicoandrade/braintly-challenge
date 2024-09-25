@@ -7,11 +7,13 @@ export function useTodos() {
     const { data, error, isLoading } = useSWR<
         {
             data: z.infer<typeof TodoSchema>[];
+            count: number;
         },
         Error
     >(`/api/todos`, getTodos);
     return {
         todos: data?.data,
+        count: data?.count ?? 0,
         isLoading,
         isError: error,
     };
@@ -21,11 +23,13 @@ export function useTodosCompleted() {
     const { data, error, isLoading } = useSWR<
         {
             data: z.infer<typeof TodoSchema>[];
+            count: number;
         },
         Error
     >(`/api/todos/completed`, getTodosCompleted);
     return {
         todos: data?.data,
+        count: data?.count ?? 0,
         isLoading,
         isError: error,
     };

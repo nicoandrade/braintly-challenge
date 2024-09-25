@@ -5,7 +5,7 @@ import { SWRProvider } from "@/app/swr-provider";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { env } from "@/env";
-import { getTodos } from "@/lib/api-helpers";
+import { getTodos, getTodosCompleted } from "@/lib/api-helpers";
 import { companyName, homePageDescription } from "@/lib/config";
 import "@/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
@@ -22,10 +22,18 @@ export const viewport: Viewport = {
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     // Prefetch todos
     const todos = await getTodos();
+    const todosCompleted = await getTodosCompleted();
     return (
         <html lang="en" className={`${GeistSans.variable}`}>
             <body className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
-                <SWRProvider config={{ fallback: { "/api/todos": todos } }}>
+                <SWRProvider
+                    config={{
+                        fallback: {
+                            "/api/todos": todos,
+                            "/api/todos/completed": todosCompleted,
+                        },
+                    }}
+                >
                     <Header />
                     {children}
                     <Footer />

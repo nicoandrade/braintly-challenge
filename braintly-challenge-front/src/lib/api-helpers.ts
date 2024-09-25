@@ -10,6 +10,7 @@ export const getTodos = async () =>
         cache: "no-store",
     })) as {
         data: z.infer<typeof TodoSchema>[];
+        count: number;
     };
 
 /**
@@ -20,6 +21,7 @@ export const getTodosCompleted = async () =>
         cache: "no-store",
     })) as {
         data: z.infer<typeof TodoSchema>[];
+        count: number;
     };
 
 /**
